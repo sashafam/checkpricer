@@ -1,11 +1,12 @@
+require('dotenv').config();
+
 const axios = require('axios');
 const cheerio = require('cheerio');
 const { createClient } = require('@supabase/supabase-js');
 
 const url = 'https://www.suplementoscolombia.co/';
-const supabaseUrl = 'https://uhsyzgmbvxjarwpntuod.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVoc3l6Z21idnhqYXJ3cG50dW9kIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODk0MjAwMTgsImV4cCI6MjAwNDk5NjAxOH0.sutBAJhAdkIps_zbymITysl3PtuAKJjFClkChV7xcEk'
-
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
 
 const supabase = createClient(supabaseUrl, supabaseKey, {
     persistSession: false,
